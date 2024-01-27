@@ -4,6 +4,8 @@ import { Box, Button, IconButton, Menu, MenuItem } from "@mui/material";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
+import { MENU_ITEMS_DISPLAY } from "~/config/menuConfig";
+
 function Navigation() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -45,67 +47,27 @@ function Navigation() {
         transformOrigin={{ vertical: "top", horizontal: "right" }}
         sx={{ display: { md: "none" } }}
       >
-        <MenuItem
-          onClick={() => handleButtonClick("/")}
-          selected={activeRoute === "/"}
-        >
-          Trang chủ
-        </MenuItem>
-        <MenuItem
-          onClick={() => handleButtonClick("/posts")}
-          selected={activeRoute === "/posts"}
-        >
-          Đọc truyện
-        </MenuItem>
-        <MenuItem
-          onClick={() => handleButtonClick("/about")}
-          selected={activeRoute === "/about"}
-        >
-          Về tôi
-        </MenuItem>
-        <MenuItem
-          onClick={() => handleButtonClick("/project")}
-          selected={activeRoute === "/project"}
-        >
-          Các dự án
-        </MenuItem>
+        {MENU_ITEMS_DISPLAY.map((item) => (
+          <MenuItem
+            key={item.key}
+            onClick={() => handleButtonClick(`/${item.url}`)}
+            selected={activeRoute === `/${item.key}`}
+          >
+            {item.title}
+          </MenuItem>
+        ))}
       </Menu>
       <Box sx={{ display: { xs: "none", md: "block" } }}>
-        <Button
-          color="inherit"
-          onClick={() => handleButtonClick("/")}
-          sx={{ color: activeRoute === "/" && "primary.main" }}
-        >
-          Trang chủ
-        </Button>
-        <Button
-          color="inherit"
-          onClick={() => handleButtonClick("/posts")}
-          sx={{ color: activeRoute === "/posts" && "primary.main" }}
-        >
-          Đọc truyện
-        </Button>
-        <Button
-          color="inherit"
-          onClick={() => handleButtonClick("/about")}
-          sx={{ color: activeRoute === "/about" && "primary.main" }}
-        >
-          Về tác giả
-        </Button>
-        <Button
-          color="inherit"
-          onClick={() => handleButtonClick("/project")}
-          sx={{ color: activeRoute === "/project" && "primary.main" }}
-        >
-          Các dự án
-        </Button>
-        <Button
-          color="inherit"
-          onClick={() => handleButtonClick("/resume")}
-          sx={{ color: activeRoute === "/resume" && "primary.main" }}
-        >
-          Tóm tắt
-        </Button>
+        {MENU_ITEMS_DISPLAY.map((item) => (
+          <Button
+            key={item.key}
+            color="inherit"
+            onClick={() => handleButtonClick(`/${item.url}`)}
+            sx={{ color: activeRoute === `/${item.key}` && "primary.main" }}
+          >
+            {item.title}
+          </Button>
+        ))}
       </Box>
     </Box>
   );
