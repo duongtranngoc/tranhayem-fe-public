@@ -29,7 +29,7 @@ export const MENU_ITEMS_DISPLAY = [
   },
   {
     key: MENU_ITEMS.RESUME,
-    title: "Tóm tắt",
+    title: "Bản tóm tắt",
     url: MENU_ITEMS.RESUME,
   },
 ];
