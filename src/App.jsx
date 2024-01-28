@@ -1,4 +1,8 @@
+import { Box } from "@mui/material";
+
 import { BrowserRouter as Router } from "react-router-dom";
+
+import { contact } from "~/apis/mockData/contact";
 
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
@@ -11,14 +15,15 @@ const App = () => {
   return (
     <Router>
       <Header />
-      <main
-        style={{
+      <Box
+        component="main"
+        sx={{
           minHeight: theme.tranhayemCustom.minHeightMain,
         }}
       >
         <AppRoutes />
-      </main>
-      <Footer />
+      </Box>
+      <Footer contact={contact} />
     </Router>
   );
 };
