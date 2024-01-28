@@ -5,11 +5,19 @@ import Header from "./components/header/Header";
 
 import AppRoutes from "./routes/AppRoutes";
 
+import theme from "./theme";
+
 const App = () => {
   return (
     <Router>
       <Header />
-      <AppRoutes />
+      <main
+        style={{
+          minHeight: theme.tranhayemCustom.minHeightMain,
+        }}
+      >
+        <AppRoutes />
+      </main>
       <Footer />
     </Router>
   );
