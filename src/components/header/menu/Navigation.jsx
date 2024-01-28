@@ -42,7 +42,7 @@ function Navigation() {
             onClick={() => handleButtonClick(`/${item.url}`)}
             sx={{
               color: (theme) =>
-                activeRoute === `/${item.url}` && theme.components.active,
+                activeRoute === `/${item.url}` && theme.palette.active,
               width: 120,
             }}
           >

@@ -14,35 +14,39 @@ const theme = extendTheme({
 
   colorSchemes: {
     light: {
-      components: {
-        body: {
-          backgroundColor: yellow[200],
+      palette: {
+        active: red.A700,
+        background: {
+          default: yellow[100],
         },
-        active: red[900],
-        MuiAppBar: {
-          styleOverrides: {
-            root: {
-              backgroundColor: yellow[500],
-              color: grey[900],
-              "& .MuiToolbar-root": {
-                minHeight: HEADER_HEIGHT,
-              },
-            },
+        primary: {
+          main: yellow[200],
+        },
+      },
+    },
+
+    dark: {
+      palette: {
+        active: yellow[200],
+        background: {
+          default: grey[900],
+        },
+        primary: {
+          main: yellow[500],
+          AppBar: {
+            darkBg: red[400],
           },
         },
       },
     },
-    dark: {
-      components: {
-        active: yellow[200],
-        MuiAppBar: {
-          styleOverrides: {
-            root: {
-              backgroundColor: grey[900],
-              "& .MuiToolbar-root": {
-                minHeight: HEADER_HEIGHT,
-              },
-            },
+  },
+
+  components: {
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
+          "& .MuiToolbar-root": {
+            minHeight: HEADER_HEIGHT,
           },
         },
       },
