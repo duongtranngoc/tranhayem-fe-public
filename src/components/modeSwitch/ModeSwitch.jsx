@@ -39,7 +39,7 @@ function ModeSwitch() {
         <Button
           onClick={handleModeChange}
           sx={{
-            color: (theme) => theme.tranhayemCustom.active,
+            color: (theme) => theme.components.active,
             borderRadius: "50%",
             width: "34px",
             height: "34px",

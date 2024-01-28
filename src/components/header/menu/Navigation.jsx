@@ -37,12 +37,12 @@ function Navigation() {
       <Box sx={{ display: { xs: "none", md: "block" } }}>
         {MENU_ITEMS_DISPLAY.map((item) => (
           <Button
-            key={item.key}
+            key={item.title}
             color="inherit"
             onClick={() => handleButtonClick(`/${item.url}`)}
             sx={{
               color: (theme) =>
-                activeRoute === `/${item.url}` && theme.tranhayemCustom.active,
+                activeRoute === `/${item.url}` && theme.components.active,
               width: 120,
             }}
           >
@@ -76,7 +76,7 @@ function Navigation() {
       >
         {MENU_ITEMS_DISPLAY.map((item) => (
           <MenuItem
-            key={item.key}
+            key={item.title}
             onClick={() => handleButtonClick(`/${item.url}`)}
             selected={activeRoute === `/${item.url}`}
           >
