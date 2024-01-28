@@ -29,13 +29,13 @@ const theme = extendTheme({
       palette: {
         active: yellow[200],
         background: {
-          default: grey[900],
+          default: "#000",
         },
         primary: {
-          main: yellow[500],
-          AppBar: {
-            darkBg: red[400],
-          },
+          main: grey[900],
+        },
+        AppBar: {
+          darkBg: "#000",
         },
       },
     },
