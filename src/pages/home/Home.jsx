@@ -1,7 +1,13 @@
-import { Box } from "@mui/material";
+import Box from "@mui/material/Box";
+
+import Introduce from "./introduce/Introduce";
 
 function Home() {
-  return <Box>Home</Box>;
+  return (
+    <Box>
+      <Introduce />
+    </Box>
+  );
 }
 
 export default Home;
