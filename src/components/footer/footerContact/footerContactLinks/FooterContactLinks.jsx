@@ -7,7 +7,12 @@ const FooterContactLinks = ({ href, icon: Icon }) => {
       target="_blank"
       rel="noopener noreferrer"
       color="inherit"
-      sx={{ mx: 0.5 }}
+      sx={{
+        mx: 0.5,
+        ":hover": {
+          color: (theme) => theme.palette.active,
+        },
+      }}
     >
       <Icon />
     </Link>
