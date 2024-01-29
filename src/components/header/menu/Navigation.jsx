@@ -44,6 +44,24 @@ function Navigation() {
               color: (theme) =>
                 activeRoute === `/${item.url}` && theme.palette.active,
               width: 120,
+              position: "relative",
+              "&:hover": {
+                color: (theme) => theme.palette.active,
+              },
+              "&::after": {
+                content: "''",
+                position: "absolute",
+                bottom: 0,
+                left: 0,
+                width: 0,
+                height: 4,
+                backgroundColor: (theme) => theme.palette.active,
+                transition: "width 0.4s ease",
+                borderRadius: "4px",
+              },
+              "&:hover::after": {
+                width: "100%",
+              },
             }}
           >
             {item.title}
