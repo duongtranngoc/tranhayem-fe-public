@@ -1,17 +1,18 @@
 import MenuIcon from "@mui/icons-material/Menu";
 
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import ModeSwitch from "~/components/modeSwitch/ModeSwitch";
 
 import { MENU_ITEMS_DISPLAY } from "~/config/menuConfig";
+
+import NavigationButton from "./navigationButton/NavigationButton";
 
 function Navigation() {
   const navigate = useNavigate();
@@ -19,9 +20,15 @@ function Navigation() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [activeRoute, setActiveRoute] = useState(location.pathname);
 
+  useEffect(() => {
+    setActiveRoute(location.pathname);
+  }, [location.pathname]);
+
   const handleButtonClick = (route) => {
-    setActiveRoute(route);
-    navigate(route);
+    if (route !== activeRoute) {
+      setActiveRoute(route);
+      navigate(route);
+    }
   };
 
   const handleMenuOpen = (event) => {
@@ -36,36 +43,12 @@ function Navigation() {
     <Box sx={{ display: "flex", alignItems: "center" }}>
       <Box sx={{ display: { xs: "none", md: "block" } }}>
         {MENU_ITEMS_DISPLAY.map((item) => (
-          <Button
+          <NavigationButton
             key={item.title}
-            color="inherit"
+            item={item}
+            activeRoute={activeRoute}
             onClick={() => handleButtonClick(`/${item.url}`)}
-            sx={{
-              color: (theme) =>
-                activeRoute === `/${item.url}` && theme.palette.active,
-              width: 120,
-              position: "relative",
-              "&:hover": {
-                color: (theme) => theme.palette.active,
-              },
-              "&::after": {
-                content: "''",
-                position: "absolute",
-                bottom: 0,
-                left: 0,
-                width: 0,
-                height: 4,
-                backgroundColor: (theme) => theme.palette.active,
-                transition: "width 0.4s ease",
-                borderRadius: "4px",
-              },
-              "&:hover::after": {
-                width: "100%",
-              },
-            }}
-          >
-            {item.title}
-          </Button>
+          />
         ))}
       </Box>
 
@@ -78,15 +61,15 @@ function Navigation() {
         aria-haspopup="true"
         onClick={handleMenuOpen}
         color="inherit"
-        sx={{ display: { md: "none" }, padding: "5px" }}
+        sx={{ display: { md: "none" }, padding: "4px" }}
       >
         <MenuIcon />
       </IconButton>
+
       <Menu
         id="menu-appbar"
         anchorEl={anchorEl}
         open={Boolean(anchorEl)}
-        onClick={handleMenuClose}
         onClose={handleMenuClose}
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
         transformOrigin={{ vertical: "top", horizontal: "right" }}
@@ -97,6 +80,10 @@ function Navigation() {
             key={item.title}
             onClick={() => handleButtonClick(`/${item.url}`)}
             selected={activeRoute === `/${item.url}`}
+            sx={{
+              color: (theme) =>
+                activeRoute === `/${item.url}` && theme.palette.active,
+            }}
           >
             {item.title}
           </MenuItem>
