@@ -12,6 +12,6 @@ export const contact = {
   youtube: "https://www.youtube.com/@tranhayem",
   pinterest: "",
   medium: "",
-  startYear: 2024,
-  updateYear: 2024,
+  startYear: 1706521057444,
+  updateYear: 1706521057444,
 };
