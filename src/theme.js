@@ -61,7 +61,7 @@ const theme = extendTheme({
     MuiContainer: {
       styleOverrides: {
         root: {
-          maxWidth: "1000px !important",
+          padding: "24px",
         },
       },
     },
