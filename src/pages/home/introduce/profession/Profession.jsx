@@ -11,6 +11,7 @@ function Profession({ jobTitle }) {
 
   return (
     <Typography
+      component={"span"}
       sx={{
         fontSize: {
           xs: "20px",
