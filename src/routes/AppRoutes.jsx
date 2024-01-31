@@ -3,12 +3,12 @@ import { Route, Routes } from "react-router-dom";
 
 import { MENU_ITEMS_DISPLAY } from "~/config/menuConfig";
 
+import NotFound from "~/pages/NotFound";
 import About from "~/pages/about/About";
 import Home from "~/pages/home/Home";
-import Posts from "~/pages/posts/Posts";
 import Projects from "~/pages/projects/Projects";
 import Resume from "~/pages/resume/Resume";
-import NotFound from "~/pages/NotFound";
+import Stories from "~/pages/stories/Stories";
 
 const AppRoutes = () => {
   return (
@@ -30,7 +30,7 @@ const getElement = (title) => {
     case "Trang chủ":
       return <Home />;
     case "Đọc truyện":
-      return <Posts />;
+      return <Stories />;
     case "Về tác giả":
       return <About />;
     case "Các dự án":
