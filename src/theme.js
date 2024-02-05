@@ -31,14 +31,8 @@ const theme = extendTheme({
     dark: {
       palette: {
         active: yellow[200],
-        background: {
-          default: "#000",
-        },
         primary: {
           main: grey[900],
-        },
-        AppBar: {
-          darkBg: "#000",
         },
       },
       footer: {
